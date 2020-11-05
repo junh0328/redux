@@ -1,6 +1,7 @@
 # react-redux
 
 - 3.1 Connecting the store
+  ㅖ
 
   > > 리덕스로 만든 CreateStore를 담은 파일은 store.js와 App.js를 연결해주기 위해서 index.js에 Provider라는 react-redux를 추가하였다.
   > > 이 Provider는 필수적으로 store를 필요로 하는데 여기에 store.js 컴포넌트를 연결해 준다.
@@ -19,5 +20,9 @@
   - 우리가 redux에서 store.getState()로 state를 받아왔던 것을 react-redux는 mapStateToProps()를 통해서 받아온다고 생각하면 된다.
 
 - 3.3 mapDispatchToProps
+
   > > 기존 리덕스에서 store.dispatch({ type: MINUS }) 등과 같이 action.type을 dispatch(실행) 시키는 함수를 리액트 리덕스에서는 mapDispatchToProps를 사용하게 된다.
   > > mapStateToProps와 마찬가지로 connect() 단계를 거쳐야 한다.
+  > > mapStateToProps에서 사용하는 addToDO는 액션타입으로, store.js에서 export시킨 것이다. 이렇게 리턴시킨 addToDo를 Home에서 props로 받아와서, Home에서 submit하는 onclick 이벤트에 맞춰 발동되게 된다.
+
+- 3.4 deleteToDo
