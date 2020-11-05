@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { actionCreators, addToDo } from "../store";
 
-const Home = ({ toDos }) => {
+const Home = ({ toDos, addToDo }) => {
   const [text, setText] = useState("");
 
   const onChange = (e) => {
@@ -11,6 +12,7 @@ const Home = ({ toDos }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(text);
+    addToDo(text);
     setText("");
   };
   return (
@@ -20,7 +22,7 @@ const Home = ({ toDos }) => {
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
       </form>
-      <ul></ul>
+      <ul>{JSON.stringify(toDos)}</ul>
     </div>
   );
 };
@@ -29,4 +31,10 @@ const mapStateToProps = (state) => {
   return { toDos: state };
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToDo: (text) => dispatch(actionCreators.addToDo(text)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
