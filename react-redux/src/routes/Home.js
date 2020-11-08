@@ -32,6 +32,7 @@ const Home = ({ toDos, addToDo }) => {
   );
 };
 
+// store.js에 저장된 현재 state = [] 를 매핑하겠다는 함수
 const mapStateToProps = (state) => {
   return { toDos: state };
 };

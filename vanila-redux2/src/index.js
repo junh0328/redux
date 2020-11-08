@@ -46,6 +46,8 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer);
 
+console.log(store);
+
 store.subscribe(() => console.log(store.getState()));
 
 const dispatchAddToDo = (text) => {
@@ -67,8 +69,8 @@ const paintToDos = () => {
     btn.addEventListener("click", dispatchDeleteToDo);
     li.id = toDo.id;
     li.innerText = toDo.text;
-    li.appendChild(btn);
-    ul.appendChild(li);
+    li.appendChild(btn); // <li> {toDo.text} <button>DEL</button></li>
+    ul.appendChild(li); // <ul><li> {toDo.text} <button>DEL</button></li></ul>
   });
 };
 

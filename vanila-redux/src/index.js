@@ -20,7 +20,7 @@ const reducer = (count = 0, action) => {
 
 const store = createStore(reducer);
 
-// console.log(store);
+console.log(store);
 
 const onChange = () => {
   number.innerText = store.getState();
